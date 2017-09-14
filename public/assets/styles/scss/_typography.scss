@@ -1,0 +1,145 @@
+/* = TYPE  */
+@include font-face(Proxima Nova Light, '#{$font-path}/proximanova/proximanova-light', $file-formats: svg ttf eot woff);
+@include font-face(Proxima Nova Regular, '#{$font-path}/proximanova/proximanova-regular', $file-formats: svg ttf eot woff);
+@include font-face(Proxima Nova Semibold, '#{$font-path}/proximanova/proximanova-semibold', $file-formats: svg ttf eot woff);
+@include font-face(Proxima Nova Bold, '#{$font-path}/proximanova/proximanova-bold', $file-formats: svg ttf eot woff);
+
+body {
+	font-family: 'Dosis', sans-serif;
+	font-weight:$base-weight;
+	@include font-size(14px);
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, form, legend, table, th, td, caption, hr {
+	margin:0;
+	font-weight:$base-weight;
+ }
+
+ h1, h2, h3, h4, h5, h6, .alpha, .beta, .gamma, .delta, .epsilon{
+ 	font-family: $base-font-bold;
+ 	font-weight: 600;
+ }
+
+h1,
+.alpha {
+	@include font-size(35px, 1);
+	@include respond-min($medium-screen) {
+		@include font-size(50px, 1);
+	}
+}
+
+h2,
+.beta {
+	@include font-size(24px, 1.6);
+}
+
+h3,
+.gamma {
+	@include font-size(18px);
+}
+
+h4,
+.delta {
+	@include font-size(16px);
+}
+
+h5,
+.epsilon {
+	@include font-size(13px);
+}
+
+h6,
+.zeta {
+	@include font-size(12px);
+}
+
+
+/* = HELPERS */
+// ! IMPORTANT - The Following classes are useful for prototyping, apply direct to your own selector */
+
+/* Weights */
+
+b, strong {
+	font-weight:normal;
+	font-family: $base-font-bold;
+}
+
+.normal {
+	font-family: $base-font;
+}
+.light {
+	font-family: $base-font-light;
+}
+.semibold {
+	font-family: $base-font-semibold;
+}
+.bold {
+	font-family: $base-font-bold;
+}
+
+/* Formats */
+.strip-bullets {
+	@include strip-bullets();
+}
+
+.uppercase {
+	text-transform:uppercase;
+}
+
+
+/* = FREE TEXT */
+// Force formatting for content populated through a CMS
+
+.free-text {
+
+	p {
+		font-size:$base-font-size !important;
+    	font-size:($base-font-size / $base-font-size)*1rem !important;
+		line-height:$base-line-height !important;
+		font-family: $base-font !important;
+		font-weight:$base-weight !important;
+		margin-bottom:$spacer !important;
+	}
+
+	a {
+		text-decoration: underline;
+		font-family: $base-font-bold;
+		line-height:1em; // adjusts for bolding
+
+		&:hover {
+			text-decoration: none;
+
+		}
+	}
+
+	ul {
+		list-style-type: disc;
+		margin-left: 2em;
+
+		li {
+			list-style-type: disc;
+			list-style-position: outside;
+			list-style-image: none;
+		}
+	}
+
+
+	// Use a counter for mutiple levels of numbering e.g 1.2.1 and allow custom styling
+	ol {
+		counter-reset: item;
+		margin-left: 2em;
+
+		li {
+			display: block;
+		}
+		li:before {
+			margin-left: -1em;
+  			margin-right: 0.25em;
+			content: counters(item, ".") " ";
+			counter-increment: item;
+		}
+	}
+
+}

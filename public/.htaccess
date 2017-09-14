@@ -1,0 +1,34 @@
+# Block access to readme and license files
+<Files README.md>
+order deny,allow
+deny from all
+</Files>
+
+<Files readme.html>
+order deny,allow
+deny from all
+</Files>
+
+<Files license.txt>
+order deny,allow
+deny from all
+</Files>
+
+# BEGIN GZIP
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</ifmodule>
+# END GZIP
+
+# Page Redirects
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+
+
+
+
+
+
+

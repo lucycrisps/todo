@@ -1,0 +1,32 @@
+// legacy browser warning
+.browser-upgrade {
+    text-align:center;
+    padding:12px;
+    top: 76px;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    background: #CA0404;
+    color: white;
+    font-size: 14px;
+
+    p {
+        margin-bottom:0;
+        font-weight: bold;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+    }
+
+    a {
+        text-decoration: underline;
+        color: inherit;
+    }
+}
+
+.global-header {
+    padding: $spacer;
+}
+
+.header__utils {
+    margin: $spacer 0;
+}

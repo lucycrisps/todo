@@ -1,0 +1,49 @@
+/* == PATHS  */
+
+$asset-path : "../.."; // Set the path to get back to the asset folder from CSS
+$img-path: "#{$asset-path}/img"; // Shortcut to decare image path e.g: background:url('#{$img-path}/logo.png');
+$font-path :"#{$asset-path}/fonts";
+
+/* == COLORS  */
+
+$alt-black: #010205;
+$slate-grey: #e5e5e5;
+$graphite-grey: #404040;
+
+$red: #f7575b;
+$green: #19a753;
+
+$bg-color: #fffff1;
+$primary-color: $graphite-grey;
+$link-color: $primary-color;
+$hover-color: darken($link-color, 10);
+
+/* == FONTS  */
+// Font stack, set common font here and fallback
+
+$base-font: 'Dosis', sans-serif;
+$base-font-light: 'Dosis', sans-serif;
+$base-font-semibold: 'Dosis', sans-serif;
+$base-font-bold: 'Dosis', sans-serif;
+
+$base-weight: 400;
+$base-font-size: 16px;
+$base-line-height: 20px;
+$line-height-ratio: $base-line-height / $base-font-size;
+
+/* == SPACING  */
+// Commonly used for gutters and gaps
+
+$spacer: 20px;
+$spacer--small: 16px;
+
+/* == Default Device Sizes */
+// Useful for media queries
+
+$small-screen: 320px; /* e.g mobile */
+$medium-screen:600px; /* e.g Phablets and Tablets */
+$large-screen: 1025px; /* e.g Basic Desktops */
+$x-large-screen:1140px; /* e.g Average Desktops */
+$huge-screen: 1440px; /* e.g Ideal Desktops */
+
+$max-width : $huge-screen + $spacer * 2;

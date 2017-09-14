@@ -1,0 +1,56 @@
+.new-list {
+	//display: none;
+}
+
+.list {
+	background: #feffc3;
+	margin: $spacer; 
+	overflow: hidden;
+	padding: 0 0 70px;
+	position: relative;
+}
+	
+	.list__title {
+		padding: 30px $spacer $spacer;
+	}
+
+	// the actual list
+	.list__main {
+		li {
+			border-bottom: 1px solid red;
+			cursor: pointer;
+			padding: 8px 40px 8px 45px;
+			position: relative;
+			@include transition(all .6s ease);
+
+			&:before {
+				border: 1px solid #000;
+				content: "";
+				display: block;
+				height: 15px;
+				left: $spacer;
+				line-height: 15px;
+				position: absolute;
+				text-align: center;
+				top: 50%;
+				width: 15px;
+				@include transform(translatey(-50%));
+			}
+
+			&.complete {
+				opacity: 0.5;
+				text-decoration: line-through;
+				@include transition(all .6s ease);
+
+				&:before {
+					//border-color: transparent;
+					content: "✓";
+				}
+			}
+		}
+	}
+
+		#addToList {
+			display: none;
+		}
+

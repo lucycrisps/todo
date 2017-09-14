@@ -1,0 +1,64 @@
+* {
+	box-sizing:border-box;
+}
+
+html, body {
+	min-height: 100%;
+	background-color:$bg-color;
+}
+
+body {
+	color:$primary-color;
+	position: relative;
+
+	.lt-ie9 & {
+		min-width: $large-screen; // prevent liquid layout for small screen legacy IE
+	}
+}
+
+	.main-wrapper {
+		margin: 0 auto;
+		max-width: 90%;
+	}
+
+code {
+	@include font-size($base-font-size - 2);
+	background-color:#f2f2f2;
+	padding:$spacer--small;
+	display:block;
+}
+
+a {
+	color: $link-color;
+	text-decoration:none;
+
+	&:hover {
+		color: $hover-color;
+		@include transition(color 0.25s ease); // transition all the links by default
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+}
+
+img {
+    max-width:100%;
+    height: auto;
+}
+
+li {
+	line-height:$base-line-height;
+}
+
+/* = FIXES  */
+
+// Fix for Google Map styling
+.google-map-canvas,
+.google-map-canvas * {
+	box-sizing:border-box;
+
+    img {
+        max-width: none;
+    }
+}

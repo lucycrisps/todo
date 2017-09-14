@@ -1,0 +1,309 @@
+// /* = GLOBAL LAYOUTS  */
+
+// Use these classes in your HTML if appropriate, else use the mixin on your element 
+// e.g .sidebar { @include col(1,3); }
+
+.gutter-container {
+	@include gutter-container;
+}
+
+// Whole
+.col-1-1 {
+	@include col(1,1);
+	clear:both;
+}
+
+/* Half */
+.col-1-2 {
+	@include col(1,2);
+}
+
+/* Thirds */
+.col-1-3 {
+	@include col(1,3);
+}
+.col-2-3 {
+	@include col(2,3);
+}
+
+/* Quarters */
+.col-1-4 {
+	@include col(1,4);
+}
+// 2-4 = 1-2
+.col-3-4 {
+	@include col(3,4);
+}
+
+/* Fifths */
+.col-1-5 {
+	@include col(1,5);
+}
+.col-2-5 {
+	@include col(2,5);
+}
+.col-3-5 {
+	@include col(3,5);
+}
+.col-4-5 {
+	@include col(4,5);
+}
+
+/* Sixths */
+.col-1-6 {
+	@include col(1,6);
+}
+// 2-6 = 1-3
+// 3-6 = 1-2
+// 4-6 = 2-3
+.col-5-6 {
+	@include col(5,6);
+}
+
+/* = SMALL LAYOUT  */
+
+@include respond-max($medium-screen - 1) {
+
+	.gutter-container--s {
+		@include gutter-container;
+	}
+
+	.col-1-1--s {
+		@include col(1,1);
+	}
+	.col-1-2--s {
+		@include col(1,2);
+	}
+	.col-1-3--s {
+		@include col(1,3);
+	}
+	.col-2-3--s {
+		@include col(2,3);
+	}
+	.col-1-4--s {
+		@include col(1,4);
+	}
+	.col-3-4--s {
+		@include col(3,4);
+	}
+}
+
+/* = MEDIUM LAYOUT */
+
+@include respond-min-max($medium-screen, $large-screen - 1) {
+
+	.gutter-container--med{
+		@include gutter-container;
+	}
+	.col-1-1--med{
+		@include col(1,1);
+	}
+	.col-1-2--med{
+		@include col(1,2);
+	}
+	.col-1-3--med{
+		@include col(1,3);
+	}
+	.col-2-3--med{
+		@include col(2,3);
+	}
+	.col-1-4--med{
+		@include col(1,4);
+	}
+	.col-3-4--med{
+		@include col(3,4);
+	}
+	.col-1-5--med{
+		@include col(1,5);
+	}
+	.col-2-5--med{
+		@include col(2,5);
+	}
+	.col-3-5--med{
+		@include col(3,5);
+	}
+	.col-4-5--med{
+		@include col(4,5);
+	}
+	.col-1-6--med{
+		@include col(1,6);
+	}
+	.col-5-6--med{
+		@include col(5,6);
+	}
+}
+
+/* = MEDIUM DOWN */
+
+@include respond-max ($medium-screen - 1) {
+	.gutter-container--med-down {
+		@include gutter-container;
+	}
+}
+
+/* = MEDIUM AND UP */
+
+@include respond-min ($medium-screen) {
+
+	.gutter-container--med-up {
+		@include gutter-container;
+	}
+
+	.col-1-1--med-up {
+		@include col(1,1);
+	}
+	.col-1-2--med-up {
+		@include col(1,2);
+	}
+	.col-1-3--med-up {
+		@include col(1,3);
+	}
+	.col-2-3--med-up {
+		@include col(2,3);
+	}
+	.col-1-4--med-up {
+		@include col(1,4);
+	}
+	.col-3-4--med-up {
+		@include col(3,4);
+	}
+	.col-1-5--med-up {
+		@include col(1,5);
+	}
+	.col-2-5--med-up {
+		@include col(2,5);
+	}
+	.col-3-5--med-up {
+		@include col(3,5);
+	}
+	.col-4-5--med-up {
+		@include col(4,5);
+	}
+	.col-1-6--med-up {
+		@include col(1,6);
+	}
+	.col-5-6--med-up {
+		@include col(5,6);
+	}
+}
+
+/* = LARGE LAYOUT */
+
+@include respond-min ($large-screen) {
+
+	.gutter-container--l {
+		@include gutter-container;
+	}
+
+	.col-1-1--l {
+		@include col(1,1);
+	}
+	.col-1-2--l {
+		@include col(1,2);
+	}
+	.col-1-3--l {
+		@include col(1,3);
+	}
+	.col-2-3--l {
+		@include col(2,3);
+	}
+	.col-1-4--l {
+		@include col(1,4);
+	}
+	.col-3-4--l {
+		@include col(3,4);
+	}
+	.col-1-5--l {
+		@include col(1,5);
+	}
+	.col-2-5--l {
+		@include col(2,5);
+	}
+	.col-3-5--l {
+		@include col(3,5);
+	}
+	.col-4-5--l {
+		@include col(4,5);
+	}
+	.col-1-6--l {
+		@include col(4,5);
+	}
+	.col-5-6--l {
+		@include col(5,6);
+	}
+}
+// /* = CLEARING  */
+
+.clearfix {
+	@include clearfix;
+}
+
+.clear-last {
+	clear:both;
+}
+
+// Respect various media querries, e.g using a mix of col-1-2--s and col-1-3--med 
+.clear-n--mq {
+	// Small
+	@include respond-max($medium-screen - 1) {
+		.col-1-2--s:nth-child(2n+1){
+		    clear: left;
+		}
+		.col-1-3--s:nth-child(3n+1){
+		    clear: left;
+		}
+		.col-1-4--s:nth-child(4n+1){
+		    clear: left;
+		}
+		.col-1-5--s:nth-child(5n+1){
+		    clear: left;
+		}
+		.col-1-6--s:nth-child(6n+1){
+		    clear: left;
+		}
+	}
+	// Med
+	@include respond-min-max($medium-screen, $large-screen - 1) {
+		.col-1-2--med:nth-child(2n+1){
+		    clear: left;
+		}
+		.col-1-3--med:nth-child(3n+1){
+		    clear: left;
+		}
+		.col-1-4--med:nth-child(4n+1){
+		    clear: left;
+		}
+		.col-1-5--med:nth-child(5n+1){
+		    clear: left;
+		}
+		.col-1-6--med:nth-child(6n+1){
+		    clear: left;
+		}
+	}
+
+	// Med
+	@include respond-min($large-screen) {
+		.col-1-2--l:nth-child(2n+1){
+		    clear: left;
+		}
+		.col-1-3--l:nth-child(3n+1){
+		    clear: left;
+		}
+		.col-1-4--l:nth-child(4n+1){
+		    clear: left;
+		}
+		.col-1-5--l:nth-child(5n+1){
+		    clear: left;
+		}
+		.col-1-6--l:nth-child(6n+1){
+		    clear: left;
+		}
+	}
+}
+
+// if we are using flexbox, we dont need a clearfix, there on some instances (such as swapping flex order) where we dont want the cleafix to apply as it will target the wrong element. we still need it to work in legacy IE and when there is no flexbox support. 
+.gt-ie9 .no-cf:after,
+.flexbox .no-cf:after  {
+	clear:none !important;
+	display:block !important;
+}

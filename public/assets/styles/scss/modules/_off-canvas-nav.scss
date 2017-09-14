@@ -1,0 +1,113 @@
+/* Layout */
+
+.total-wrapper {
+	overflow: hidden;
+	width: 100%;
+}	
+
+	.trigger-off-canvas-container {
+		text-align: right;
+	}
+
+		.trigger-off-canvas {
+			display: inline-block;
+
+			&.hide {
+				display: none;
+			}
+		}
+
+	.off-canvas-nav {
+		position: absolute; // Important - start as absolute so it scrolls with page on iOS - prevent it peeking out if scrolling above top of site when not triggere
+		padding: 0;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background-color:$slate-grey;
+		// -- Swap for menu on right # 1 --
+		// width: 80%;
+		//left: 0;
+		// @include respond-min($medium-screen) {
+		// 	width: 50%;
+		//left: 0;
+		// }
+		right: 0;
+		width: 80%;
+		@include respond-min($medium-screen) {
+			width: 50%;
+		}
+	}
+
+	.main-wrapper {
+		position: relative;
+		transition: all 0.5s ease;
+		min-height: 100%;
+		width: 100%;
+	}
+	
+	/* Menu triggered */
+
+	// Swap the positoning for fixed ONLY when exposed so we cant see it when the page is dragged
+	#offCanvasNav:target,
+	.off-canvas-nav.is-triggered {
+		position: fixed;
+	}
+
+	#offCanvasNav:target + .main-wrapper, // No js - use css target
+	.off-canvas-nav.is-triggered + .main-wrapper { // js use jquery added class {
+		position: fixed;
+		top:0;
+
+		// -- Swap for menu on right # 2 --
+		// @include respond-max($medium-screen - 1) {
+		// 	@include transform(translateX(80%));
+		// }
+		// @include respond-min($medium-screen) {
+		// 	@include transform(translateX(50%));
+		// }
+
+		@include respond-max($medium-screen - 1) {
+			@include transform(translateX(-80%));
+		}
+		@include respond-min($medium-screen) {
+			@include transform(translateX(-50%));
+		}
+
+		.owl-carousel {
+			display: none !important; // freaky bug with the slider when the off canvas nav is active
+		}
+	}
+
+	.trigger-off-canvas-container i{
+		@include transition(transform, 0.5s);
+	}
+
+	.off-canvas-nav.is-triggered + .main-wrapper i {
+		// -- Swap for menu on right # 3 --
+		// @include transform(rotate(-90deg));
+		// @include respond-min($medium-screen) {
+		//	@include transform(rotate(-90deg));
+		// }
+
+		@include transform(rotate(90deg));
+		@include respond-min($medium-screen) {
+			@include transform(rotate(90deg));
+		}
+	}				
+
+/* Nav styles */
+
+.off-canvas-nav {
+	a {
+		display: block;
+		font-family: $base-font-bold;
+		padding:$spacer--small;
+		border-bottom: 1px solid $graphite-grey;
+
+		&.current {
+			color: white;
+			background-color:$graphite-grey;
+			border-bottom:0;
+		}
+	}
+}

@@ -1,0 +1,7 @@
+/* 
+	LEGACY IE
+	Build a style sheet for legacy IE by assigning a fixed with and stripping out all the media queries that  don't apply see http://jakearchibald.github.io/sass-ie/
+*/
+$old-ie: true;
+$fix-mqs: 1280px;
+@import 'main';

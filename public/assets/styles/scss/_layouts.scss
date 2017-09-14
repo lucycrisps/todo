@@ -1,0 +1,120 @@
+//* = CONTEXT HIDE */ 
+
+// Global hide
+.hide {
+	display:none;
+}
+
+// Hidden and ignored by screen readers
+// NOTE: This is useful when we want to hide the element without content - See from http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+
+.visually-hidden {
+	border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.hide-text {
+	@include hide-text;
+}
+
+// Small Only
+@include respond-min($medium-screen) {
+	.s-only {
+		display:none !important;
+	}
+}
+
+// Medium Only
+@include respond-max($medium-screen - 1) {
+	.med-only {
+		display:none !important;
+	}
+}
+@include respond-min($large-screen ) {
+	.med-only {
+		display:none !important;
+	}
+}
+
+// Large Only
+@include respond-max($large-screen - 1) {
+	.l-only {
+		display:none !important
+	}
+}
+
+// Medium & Up 
+@include respond-max($medium-screen - 1) {
+	.med-up {
+		display:none !important
+	}
+}
+
+// Medium & Down 
+@include respond-min($large-screen) {
+	.med-down {
+		display:none !important
+	}
+}
+
+// Small and Large {
+@include respond-min-max ($medium-screen, $large-screen - 1) {
+	.not-med {
+		display:none !important;
+	}
+}
+
+/* = FLEXBOX */
+// Use with progressive enchanment to add extra layout features when avaiable 
+
+.flex {
+	@include display(flex);
+	@include flex-wrap(wrap);
+
+	> * {
+		-ms-flex: 0 1 auto; // fix for IE10 not wrapping flex items (e.g p) see http://stackoverflow.com/questions/16808815/ie10-flexbox-p-element-non-wrapping
+	}
+
+	> * {
+		width: 100%; // fix for elments losing width when nested in flexbox
+	}
+}
+
+/* = HELPERS */
+// ! IMPORTANT - These classes are useful for protyping but use directly on your selector with @include
+
+.bm {
+	margin-bottom: $spacer;
+}
+
+.pb {
+	padding-bottom: $spacer;
+}
+
+// Fake a table like layout, useful for basic aligning / spacing items
+.faux-table {
+	@include faux-table();
+}
+
+// Vertical alignment for the masses, see http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+.vert-center {
+	@include vertical-center();
+}
+
+// Navigation aligment, pass the total spacing you want between items
+.hoz-nav {
+	@include hoz-nav($spacer);
+}
+
+/* = PAGE STRUCTURE */
+
+.wrapper {
+	margin: 0 auto;
+	max-width:$max-width;
+}

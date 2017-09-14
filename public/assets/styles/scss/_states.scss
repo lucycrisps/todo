@@ -1,0 +1,9 @@
+// Class added by triggerLinks() see main.js
+.is-triggered {
+	display: block;
+}
+
+// Hide items that exist in the HTML but only as a javascript fallback
+.js .js-replaced {
+	display: none;
+}

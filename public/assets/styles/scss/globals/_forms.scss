@@ -1,0 +1,53 @@
+// Add custom styling to selects
+.gt-ie9 .with-select-styling {
+	position: relative;
+
+	&:after {
+		content:"";
+		position: absolute;
+		right:$spacer;
+		top:50%;
+		@include transform(translateY(-50%));
+		@include triangle(10px, $graphite-grey, down);
+		pointer-events:none;
+	}
+
+	select {
+        @include appearance(none);
+		padding-right:$spacer*2; // make room for carot
+		
+		// appearance for IE10
+		&::-ms-expand{
+		  display:none;
+		}
+	}
+}
+
+.list__form {
+	position: relative;
+	width: 100%;
+
+	&:before {
+		content: "+"; 
+		display: block;
+		font-size: 20px;
+		height: 15px;
+		left: $spacer;
+		line-height: 8px;
+		opacity: 0.6;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		width: 15px;
+		@include transform(translatey(-50%));
+	}
+
+	input {
+		border-bottom: 1px solid rgba(250,0,0,0.3);
+		font-family: $base-font;
+		font-weight:$base-weight;
+		@include font-size(14px);
+		padding: 8px 40px 8px 45px;
+		width: 100%;
+	}
+}

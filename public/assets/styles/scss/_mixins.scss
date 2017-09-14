@@ -1,0 +1,200 @@
+/*  The following are in addition to mixins automatically imported by http://bourbon.io/docs/.
+If you see a mixin used on the site that's not used here, then it's likely from BOURBON, so check those docs  */
+
+/* = REM Font Sizing + Fallback  */
+// Adapted from Harry Roberts Line-height mixin, also see http://www.smashingmagazine.com/2012/12/17/css-baseline-the-good-the-bad-and-the-ugly/ */
+
+@mixin font-size($font-size, $line-height:true){
+    font-size:$font-size;
+    font-size:($font-size / 16px)*1rem;
+    @if $line-height == true{
+        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    } @else {
+      line-height: $line-height;
+    }
+}
+
+/* = Convert HEX to RGBA to add opacity */
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+/* = Generic Vendor Prefix handling */
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+/* = Placeholder mixin for forms */
+/* useage e.g 
+input {
+    @placeholder {
+        color:red;
+    }
+}*/
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        @content;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+/* = Helpers */
+// Align children like table cells
+@mixin faux-table($alignment:middle) {
+    display:table;
+    width:100%;
+
+    > * {
+        display: table-cell;
+        vertical-align: $alignment;
+    }
+}
+// Postion somthing in the center
+@mixin vertical-center {
+    position: relative;
+    top: 50%;
+    @include transform (translateY(-50%));
+}
+
+@mixin hoz-nav($totalSpacing:$spacer) {
+    > * {
+        display:inline-block;
+        vertical-align:middle;
+        margin: 0 ($totalSpacing / 2);
+    }
+}
+// Remove UL bullets
+@mixin strip-bullets {
+    padding-left: 0;
+    margin-bottom:0;
+    list-style: none;
+}
+
+/* = Strip Units  e.g turn 10px into 10 -- see http://hugogiraudel.com/2013/08/12/sass-functions/ */
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+/* = Responsive Layouts and Legacy IE Support (IE8) */
+// Use old-ie sass to set desired width
+// for more info see http://jakearchibald.github.io/sass-ie/
+
+$fix-mqs: false !default;
+
+// MIN
+@mixin respond-min($width) {
+    // If we're outputting for a fixed media query set...
+    @if $fix-mqs {
+        // ...and if we should apply these rules...
+        @if $fix-mqs >= $width {
+            // ...output the content the user gave us.
+            @content;
+        }
+    }
+    @else {
+        // Otherwise, output it using a regular media query
+        @media only screen and (min-width: $width) {
+            @content;
+        }
+    }
+}
+
+// MAX
+@mixin respond-max($width) {
+    @if $fix-mqs {
+        @if $fix-mqs <= $width {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and (max-width: $width) {
+            @content;
+        }
+    }
+}
+
+// BETWEEN TWO VALUES
+@mixin respond-min-max($min-width, $max-width){
+    @if $fix-mqs {
+        @if $fix-mqs >= $min-width and $fix-mqs <= $max-width  {
+            @content;
+        }
+    }
+    @else {
+        @media only screen and (min-width: $min-width) and (max-width: $max-width){
+            @content;
+        }
+    }
+}
+
+// Create legacy IE style sheet - Grab contents of MQ's if they are less than the $fix-mqs value in old-ie.scss
+$old-ie: false !default;
+@mixin old-ie {
+    @if $old-ie {
+        @content;
+    }
+}
+
+
+/* = GRID SYSTEM */
+
+// GUTTER
+// Add to parent of grid items. 
+// Arguments will set a custom gutter, if none used $spacer will apply. 
+// 2nd Argument adds a different size of small screens if required
+
+// Add gutters
+@mixin gutter-container($gutter:$spacer, $gutter--small:true) {
+
+    // Remove outer gutter
+    @if $gutter--small == true{
+        margin-left:-$gutter;
+    }
+    @else {
+        margin-left:-$gutter--small;
+        @include respond-min($large-screen) {
+            margin-left:-$gutter;
+        }
+    }
+    // Add gutter to child
+    > * {
+        @if $gutter--small == true{
+            padding-left:$gutter;
+        } 
+        @else {
+            padding-left: $gutter--small;
+            @include respond-min($large-screen) {
+                padding-left: $gutter;
+            }
+        }
+    }
+    @include clearfix;
+}
+
+// COL 
+// Use: (Number of Cols, Total Cols, Float Direction)
+// e.g @include col(1,2,right) = 50% floated right
+@mixin col($count, $split, $float:true) {
+    @if $float == true{
+        float: left;
+    } @else {
+        float: $float;
+    }
+    width:#{((100/$split)*$count)}#{"%"};
+}

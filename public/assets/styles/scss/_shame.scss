@@ -1,0 +1,30 @@
+/* = FIXES  */
+// Home for all quick hacks. Aim to return to this and rework bits as we progress 
+
+// TODO - Rescue items from here!
+
+
+// DEMO CODE - Remove from your project
+
+.grid-demo {
+	.module {
+		background: #f2f2f2;
+		border:1px solid white;
+	}
+}
+
+.book-case {
+	@include gutter-container(50px, 12px);
+}
+
+	.shelf {
+		@include col(1,4,right);
+	}
+
+		.book {
+			background: red;
+		}
+
+
+
+
