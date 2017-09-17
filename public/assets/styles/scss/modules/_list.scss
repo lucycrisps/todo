@@ -1,23 +1,37 @@
 .new-list {
-	//display: none;
+	display: none; 
 }
 
 .list {
-	background: #feffc3;
-	margin: $spacer; 
+	background: #f0f0f0;
+	margin: $spacer 0; 
 	overflow: hidden;
 	padding: 0 0 70px;
 	position: relative;
+
+	@include respond-min($medium-screen) {
+		margin: $spacer 0 $spacer $spacer; 
+	}
 }
 	
 	.list__title {
 		padding: 30px $spacer $spacer;
+
+		input {
+			@extend .gamma;
+
+			&:focus {
+				outline: none;
+			}
+		}
 	}
 
 	// the actual list
 	.list__main {
+		overflow: hidden;
+
 		li {
-			border-bottom: 1px solid red;
+			border-bottom: 1px solid $graphite-grey;
 			cursor: pointer;
 			padding: 8px 40px 8px 45px;
 			position: relative;
@@ -47,10 +61,31 @@
 					content: "✓";
 				}
 			}
+
+			.item__delete {
+				background: url(../../img/delete.svg) no-repeat center;
+				background-size: 100%;
+				cursor: pointer;
+				display: block;
+				height: 15px;
+				opacity: 0;
+				position: absolute;
+				right: 20px;
+				top: 11px;
+				width: 15px;
+				@include transition(all .3s ease);
+			}
+
+			&:hover {
+				.item__delete {
+					opacity: 0.5;
+					@include transition(all .3s ease);
+
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
 		}
 	}
-
-		#addToList {
-			display: none;
-		}
 

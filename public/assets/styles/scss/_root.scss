@@ -8,6 +8,9 @@ html, body {
 }
 
 body {
+	background: url(../../img/background.jpg) no-repeat center;
+	background-size: cover;
+	background-attachment: fixed;
 	color:$primary-color;
 	position: relative;
 
@@ -15,9 +18,16 @@ body {
 		min-width: $large-screen; // prevent liquid layout for small screen legacy IE
 	}
 }
-
+	
+	.total-wrapper {
+		background: rgba(0,0,0,0.5);
+		@include respond-min($medium-screen) {
+			background: rgba(0,0,0,0.2);
+		}
+	}
 	.main-wrapper {
 		margin: 0 auto;
+		min-height: 100vh;
 		max-width: 90%;
 	}
 

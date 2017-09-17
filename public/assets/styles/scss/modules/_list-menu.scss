@@ -14,7 +14,7 @@ $opening-angle:$pi*2;
   //background:rgba(255,0,0,0.2);
 }
 %ball{
-  background:#feffc3;
+  background:#f0f0f0;
   //border: 1px solid #000;
   border-radius:100%;
   width:25px;
@@ -34,7 +34,7 @@ $opening-angle:$pi*2;
 }
 .menu-item{
   @extend %ball;
-  background:$bg-color;
+  background:#f0f0f0;
   border: 1px solid #000;
 }
 .hamburger{
@@ -62,7 +62,7 @@ $hamburger-spacing:5px;
   transform:translate3d(0,$hamburger-spacing,0);
 }
 .menu-open:checked+.menu-open-button{
-    background:$bg-color;
+    background:#f0f0f0;
     border: 1px solid #000;
 
     .hamburger-1{
@@ -95,7 +95,7 @@ $hamburger-spacing:5px;
 .menu-item{
   &:hover{
     background:white;
-    color:red;
+    color: rgb(68,111,105);   
   }
   @for $i from 1 through $menu-items{
     &:nth-child(#{$i+2}){

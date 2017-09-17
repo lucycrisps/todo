@@ -24,7 +24,13 @@
 }
 
 .global-header {
-    padding: $spacer;
+    padding: 50px 0 $spacer;
+    text-align: center;
+
+    @include respond-min($medium-screen) {
+        padding: 80px $spacer;
+        text-align: left;
+    }
 }
 
 .header__utils {

@@ -61,6 +61,19 @@
 
     <body>
 
+        <div class="welcome">
+            <div class="welcome__inner">
+                <div class="vert-center">
+                    <h2>Hello!</h2>
+
+                    <form id="welcomeForm"> 
+                        <label>What is your name?</label>
+                        <input type="text" id="userName" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="total-wrapper">
 
             <?php //include ('partials/off-canvas-nav.php'); ?>
@@ -68,26 +81,16 @@
             <div class="main-wrapper">
 
                 <header class="global-header">
-                    
-                    <!-- Off Canvas Trigger -->
-                    <div class="trigger-off-canvas-container med-down">
-                        <a href="#offCanvasNav" class="trigger-off-canvas" data-trigger="off-canvas-nav">
-                            <span class="trigger-off-canvas__text">Menu</span>
-                        </a>
-                        <!-- Close button for when no JS -->
-                        <a href="#" class="trigger-off-canvas js-replaced" data-trigger="off-canvas-nav">
-                            <span class="trigger-off-canvas__text">Close</span>
-                        </a>
-                    </div>
-                    <!-- // -->
 
-                    <div class="col-1-1">
-                        <h1>To do list</h1>
+                    <div class="gutter-container">
+                        <div class="col-1-1">
+                            <h1>To do list</h1>
 
-                        <div class="header__utils">
-                            <ul>
-                                <li><a href="#" title="" id="addList" class="button">New list</a></li>
-                            </ul>
+                            <div class="header__utils">
+                                <ul>
+                                    <li><a href="#" title="" id="addList" class="button">New list</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

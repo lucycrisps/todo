@@ -1,7 +1,49 @@
-.modal-content {
-	display:none;
+.welcome {
+	background: url(../../img/background.jpg) no-repeat center;
+	background-size: cover;
+	font-family: $base-font-bold;
+	font-size: 50px;
+	font-weight: bold;
+	height: 100vh;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	z-index: 10;
+
+	.welcome__inner {
+		background: rgba(255,255,255,0.2);
+		height: 100vh;
+		width: 100%;
+	}
+
+	h2 {
+		font-size: inherit;
+		line-height: 30px;
+		margin: 0;
+	}
+
+	label {
+		font-family: $base-font-bold;
+		font-size: 50px;
+		font-weight: bold;
+	}
+
+	input {
+		background: white;
+		color: $graphite-grey;
+		display: block;
+		font-family: $base-font-bold;
+		font-size: 40px;
+		font-weight: bold;
+		line-height: 20px;
+		margin: $spacer auto;
+		padding: 10px 20px;
+		text-align: center;
+
+		&:focus {
+    		outline: none !important;
+    		box-shadow: 0 0 10px rgb(68,111,105);   
+    	}
+	}
 }
 
-.featherlight {
-	z-index:9999;
-}

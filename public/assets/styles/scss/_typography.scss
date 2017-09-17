@@ -24,9 +24,14 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, form, legend, table,
 
 h1,
 .alpha {
+	color: #fff;
 	@include font-size(35px, 1);
 	@include respond-min($medium-screen) {
 		@include font-size(50px, 1);
+	}
+
+	&:first-letter {
+		text-transform: uppercase;
 	}
 }
 
