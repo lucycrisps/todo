@@ -2,7 +2,7 @@
 	background: url(../../img/background.jpg) no-repeat center;
 	background-size: cover;
 	font-family: $base-font-bold;
-	font-size: 50px;
+	font-size: 40px;
 	font-weight: bold;
 	height: 100vh;
 	position: fixed;
@@ -10,10 +10,18 @@
 	width: 100%;
 	z-index: 10;
 
+	@include respond-min($medium-screen) {
+		font-size: 50px;
+	}
+
 	.welcome__inner {
-		background: rgba(255,255,255,0.2);
+		background: rgba(255,255,255,0.3);
 		height: 100vh;
 		width: 100%;
+
+		@include respond-min($large-screen) {
+			background: rgba(255,255,255,0.2);
+		}
 	}
 
 	h2 {
@@ -24,8 +32,12 @@
 
 	label {
 		font-family: $base-font-bold;
-		font-size: 50px;
+		font-size: 30px;
 		font-weight: bold;
+
+		@include respond-min($medium-screen) {
+			font-size: 50px;
+		}
 	}
 
 	input {
@@ -33,12 +45,19 @@
 		color: $graphite-grey;
 		display: block;
 		font-family: $base-font-bold;
-		font-size: 40px;
+		font-size: 30px;
 		font-weight: bold;
 		line-height: 20px;
 		margin: $spacer auto;
-		padding: 10px 20px;
+		padding: 5px 10px;
 		text-align: center;
+		width: 80%;
+
+		@include respond-min($medium-screen) {
+			font-size: 40px;
+			padding: 10px 20px;
+			width: auto;
+		}
 
 		&:focus {
     		outline: none !important;
