@@ -182,16 +182,6 @@ var todo = {
       
     },
 
-    listUtils: function() {
-
-        // trigger utility nav
-
-        $('.utils-trigger').click(function() {
-            $(this).toggleClass('open');
-        })
-
-    },
-
     completeToDo: function() {
 
         // strike through todos when complete
