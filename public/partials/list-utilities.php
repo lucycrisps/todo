@@ -1,6 +1,7 @@
 <nav class="menu">
-    <input type="checkbox" href="#" class="menu-open" name="menu-open-<?php echo $i; ?>" id="menu-open-<?php echo $i; ?>"/>
-    <label class="menu-open-button" for="menu-open-<?php echo $i; ?>">
+    <label class="menu-open-button">
+    	<input type="checkbox" class="menu-open" />
+
         <span class="hamburger hamburger-1"></span>
         <span class="hamburger hamburger-2"></span>
         <span class="hamburger hamburger-3"></span>

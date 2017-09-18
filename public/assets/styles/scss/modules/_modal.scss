@@ -4,7 +4,7 @@
 	font-family: $base-font-bold;
 	font-size: 40px;
 	font-weight: bold;
-	height: 100vh;
+	height: 730px;
 	position: fixed;
 	text-align: center;
 	width: 100%;
@@ -12,6 +12,9 @@
 
 	@include respond-min($medium-screen) {
 		font-size: 50px;
+	}
+	@include respond-min($large-screen) {
+		height: 100vh;
 	}
 
 	.welcome__inner {
@@ -66,3 +69,14 @@
 	}
 }
 
+	.welcome__content {
+		opacity: 0;
+		@include transform(translate3d(0, -50%, 0));
+		@include transition(all 1.2s ease);
+
+		&.fadein {
+			opacity: 1;
+			@include transform(translate3d(0, -50%, 0));
+			@include transition(all 1.2s ease);
+		}
+	}

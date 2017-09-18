@@ -63,7 +63,7 @@
 
         <div class="welcome">
             <div class="welcome__inner">
-                <div class="vert-center">
+                <div class="vert-center welcome__content">
                     <h2>Hello!</h2>
 
                     <form id="welcomeForm"> 

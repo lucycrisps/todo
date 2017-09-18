@@ -12,7 +12,14 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	color:$primary-color;
+	opacity: 0;
 	position: relative;
+	@include transition(all 1.2s ease);
+
+	&.fadein {
+		opacity: 1;
+		@include transition(all 1.2s ease);
+	}
 
 	.lt-ie9 & {
 		min-width: $large-screen; // prevent liquid layout for small screen legacy IE
@@ -21,16 +28,24 @@ body {
 	
 	.total-wrapper {
 		background: rgba(0,0,0,0.5);
+		opacity: 0;
+		@include transition(all 1.2s ease);
+
+		&.fadein {
+			opacity: 1;
+			@include transition(all 1.2s ease);
+		}
 		@include respond-min($medium-screen) {
 			background: rgba(0,0,0,0.2);
 		}
 	}
 	.main-wrapper {
 		margin: 0 auto;
-		min-height: 100vh;
+		min-height: 800px;
 		max-width: 90%;
 		
 		@include respond-min($large-screen) {
+			min-height: 100vh;
 			padding-bottom: 100px;
 		}
 	}

@@ -1,6 +1,4 @@
 <?php include ('header.php'); ?>
-
-    <?php $i = 0; // $i is set as a counter for each list ?> 
         
     <div class="grid gutter-container lists-container">
         <div class="grid-sizer col-1-3 col-1-2--med col-1-1--s"></div>
@@ -30,5 +28,22 @@
             </div>
         </div>
     </div>
+
+    <!-- empty list -->
+    <div class="list-wrap hide grid-item col-1-3 col-1-2--med col-1-1--s">
+        <div class="list">
+            <h3 class="list__title"></h3>
+
+            <div class="list__main">
+                <ol></ol>
+                <form class="list__form" name="newToDo_example">
+                    <input type="text" class="list__additem" name="toDoItem_example" placeholder="Add todo" />
+                </form>
+            </div>
+
+            <?php include ('partials/list-utilities.php'); ?>
+        </div>
+    </div>
+    <!-- //empty-list -->
 
 <?php include ('footer.php'); ?>
