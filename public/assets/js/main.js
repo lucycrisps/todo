@@ -16,7 +16,6 @@ var todo = {
         todo.gridInit();
         todo.addToDo();
         todo.listTitle();
-        todo.listUtils();
         todo.addList();
         todo.deleteList();
         todo.completeToDo();
