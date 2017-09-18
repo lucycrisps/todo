@@ -29,6 +29,8 @@
 
     @include respond-min($medium-screen) {
         padding: 80px $spacer;
+    }
+    @include respond-min($large-screen) {
         text-align: left;
     }
 }

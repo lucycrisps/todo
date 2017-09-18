@@ -6,6 +6,7 @@
 	font-weight: bold;
 	margin: 50px auto 0;
 	padding: 5px $spacer;
+	text-align: center; 
 	width: 180px;
 
 	@include respond-min($large-screen) {
